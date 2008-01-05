@@ -1,5 +1,5 @@
-Summary:	aggregate list of prefixes
-Summary(pl.UTF-8):	agregacja listy adresów
+Summary:	Aggregate list of prefixes
+Summary(pl.UTF-8):	Agregacja listy adresów
 Name:		aggregate
 Version:	1.6
 Release:	1
@@ -8,7 +8,6 @@ Group:		Applications/Networking
 Source0:	ftp://ftp.isc.org/isc/aggregate/%{name}-%{version}.tar.gz
 # Source0-md5:	6fcc515388bf2c5b0c8f9f733bfee7e1
 BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,20 +21,18 @@ shorter-length prefix (e.g., 203.97.2.0/24 and 203.97.3.0/24 can be
 combined into the single prefix 203.97.2.0/23).
 
 %description -l pl.UTF-8
-aggregate bierze listę adresów sieci w tradycyjnej formie na
-standardowym wejściu i wykonuje dwie optymalizacje by zmniejszyć jej
-wielkość. Usuwa wszelkie adresy sieci zawierające się w innych
-adresach (np 203.97.2.0/24 będzie usunięte jeżeli jest podana
-także 203.97.0.0/17), oraz rozpoznaje przystające adresy sieci
-które mogą być połączone w jeden, krótszy adres (np
-203.97.2.0/24 i 203.97.3.0/24 będą połączone w pojedyńczy adres
-203.97.2.0/23).
+aggregate pobiera ze standardowego wejścia listę adresów sieci w
+tradycyjnej postaci i wykonuje dwie optymalizacje aby zmniejszyć jej
+długość. Usuwa wszelkie adresy sieci zawierające się w innych adresach
+(np. 203.97.2.0/24 będzie usunięte jeżeli jest podana także
+203.97.0.0/17), oraz rozpoznaje przystające adresy sieci, które mogą
+być połączone w jeden, krótszy adres (np. 203.97.2.0/24 i
+203.97.3.0/24 będą połączone w pojedynczy adres 203.97.2.0/23).
 
 %prep
 %setup -q
 
 %build
-%{__aclocal}
 %{__autoconf}
 %configure
 %{__make}
@@ -53,6 +50,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICEN* HISTORY
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%doc LICENSE HISTORY
+%attr(755,root,root) %{_bindir}/aggregate*
+%{_mandir}/man1/aggregate*.1*
