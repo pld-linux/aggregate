@@ -2,7 +2,7 @@ Summary:	Aggregate list of prefixes
 Summary(pl.UTF-8):	Agregacja listy adresów
 Name:		aggregate
 Version:	1.6
-Release:	1
+Release:	2
 License:	BSD-like
 Group:		Applications/Networking
 Source0:	ftp://ftp.isc.org/isc/aggregate/%{name}-%{version}.tar.gz
