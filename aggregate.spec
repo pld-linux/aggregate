@@ -2,11 +2,12 @@ Summary:	Aggregate list of prefixes
 Summary(pl.UTF-8):	Agregacja listy adresów
 Name:		aggregate
 Version:	1.6
-Release:	2
+Release:	3
 License:	BSD-like
 Group:		Applications/Networking
 Source0:	ftp://ftp.isc.org/isc/aggregate/%{name}-%{version}.tar.gz
 # Source0-md5:	6fcc515388bf2c5b0c8f9f733bfee7e1
+Patch0:		optflags.patch
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,6 +32,7 @@ być połączone w jeden, krótszy adres (np. 203.97.2.0/24 i
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 %build
 %{__autoconf}
